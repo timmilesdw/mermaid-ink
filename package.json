@@ -13,6 +13,7 @@
     "url": "https://github.com/timmilesdw/mermaid-ink/issues"
   },
   "homepage": "https://github.com/timmilesdw/mermaid-ink#readme",
+  "icon": "media/icon.png",
   "galleryBanner": {
     "color": "#1e293b",
     "theme": "dark"
