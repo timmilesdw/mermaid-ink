@@ -2,7 +2,7 @@
   "name": "mermaid-ink",
   "displayName": "Mermaid Ink",
   "description": "Render Mermaid diagrams in markdown preview with proper dark/light theme support",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "timmilesdw",
   "license": "MIT",
   "repository": {
