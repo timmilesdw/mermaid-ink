@@ -19,8 +19,9 @@ A VS Code / Cursor extension that renders Mermaid diagrams in markdown preview w
 
 ## Installation
 
-> **A note on VS Code Marketplace**
-> There's a version on VS Code Marketplace, but it won't get updates. Why? Because Microsoft wants me to create an Azure DevOps account just to publish a f***ing extension. No. I'm not signing up for your bloated enterprise CI/CD platform to share a 50-line markdown plugin. Open VSX exists, it works, and it doesn't require mass surveillance cosplaying as a developer experience. Get the latest from Open VSX or GitHub Releases.
+> [!WARNING]
+> **VS Code Marketplace version is abandoned.**
+> There's a version on VS Code Marketplace, but it won't get updates. Why? Because Microsoft wants me to create an Azure DevOps account just to publish a f***ing extension. No. I'm not signing up for your bloated enterprise CI/CD platform to share a 50-line markdown plugin. Open VSX exists, it works, and it doesn't require mass surveillance cosplaying as a developer experience. **Get the latest from Open VSX or GitHub Releases.**
 
 ### From Open VSX (recommended)
 
