@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,11 +32,39 @@ jobs:
       - name: Package extension
         run: vsce package
 
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Get previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          
+          if [ -n "$PREV_TAG" ]; then
+            CHANGELOG=$(git log $PREV_TAG..HEAD --pretty=format:"- %s" --no-merges)
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" --no-merges | head -20)
+          fi
+          
+          # Escape for GitHub Actions
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: '*.vsix'
-          generate_release_notes: true
+          body: |
+            ## Changes
+            
+            ${{ steps.changelog.outputs.changelog }}
+            
+            ---
+            
+            ### Installation
+            
+            **Cursor/VSCodium:** Install from [Open VSX](https://open-vsx.org/extension/timmilesdw/mermaid-ink)
+            
+            **Manual:** Download the `.vsix` below, then in VS Code/Cursor: `Cmd+Shift+P` → "Extensions: Install from VSIX..."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
