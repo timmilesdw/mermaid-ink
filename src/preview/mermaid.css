@@ -1,0 +1,129 @@
+.mermaid-container {
+  margin: 1.5em 0;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid var(--vscode-panel-border, #3c3c3c);
+  overflow-x: auto;
+}
+
+.mermaid-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-diagram[data-processed="false"] {
+  color: var(--vscode-descriptionForeground, #717171);
+  font-style: italic;
+}
+
+.mermaid-diagram[data-processed="false"]::before {
+  content: "Loading diagram...";
+}
+
+.mermaid-error {
+  color: var(--vscode-errorForeground, #f14c4c);
+  background-color: var(--vscode-inputValidation-errorBackground, rgba(255, 0, 0, 0.1));
+  border: 1px solid var(--vscode-inputValidation-errorBorder, #f14c4c);
+  padding: 1em;
+  border-radius: 4px;
+  font-family: var(--vscode-editor-font-family, monospace);
+  font-size: var(--vscode-editor-font-size, 13px);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* SVG text color overrides using VS Code theme variables */
+.vscode-dark .mermaid-diagram svg text,
+.vscode-high-contrast .mermaid-diagram svg text {
+  fill: var(--vscode-editor-foreground, #d4d4d4) !important;
+}
+
+.vscode-light .mermaid-diagram svg text {
+  fill: var(--vscode-editor-foreground, #333333) !important;
+}
+
+/* Ensure node text is readable */
+.vscode-dark .mermaid-diagram svg .nodeLabel,
+.vscode-dark .mermaid-diagram svg .edgeLabel,
+.vscode-dark .mermaid-diagram svg .label,
+.vscode-high-contrast .mermaid-diagram svg .nodeLabel,
+.vscode-high-contrast .mermaid-diagram svg .edgeLabel,
+.vscode-high-contrast .mermaid-diagram svg .label {
+  color: var(--vscode-editor-foreground, #d4d4d4) !important;
+  fill: var(--vscode-editor-foreground, #d4d4d4) !important;
+}
+
+/* Arrow and line colors */
+.vscode-dark .mermaid-diagram svg .flowchart-link,
+.vscode-dark .mermaid-diagram svg .marker,
+.vscode-dark .mermaid-diagram svg path.path,
+.vscode-high-contrast .mermaid-diagram svg .flowchart-link,
+.vscode-high-contrast .mermaid-diagram svg .marker,
+.vscode-high-contrast .mermaid-diagram svg path.path {
+  stroke: var(--vscode-editor-foreground, #94a3b8) !important;
+}
+
+/* Arrow markers fill */
+.vscode-dark .mermaid-diagram svg marker path,
+.vscode-high-contrast .mermaid-diagram svg marker path {
+  fill: var(--vscode-editor-foreground, #94a3b8) !important;
+  stroke: var(--vscode-editor-foreground, #94a3b8) !important;
+}
+
+/* Cluster/subgraph styling */
+.vscode-dark .mermaid-diagram svg .cluster rect,
+.vscode-high-contrast .mermaid-diagram svg .cluster rect {
+  fill: var(--vscode-editor-background, #1e1e1e) !important;
+  stroke: var(--vscode-panel-border, #3c3c3c) !important;
+}
+
+.vscode-dark .mermaid-diagram svg .cluster-label .nodeLabel,
+.vscode-high-contrast .mermaid-diagram svg .cluster-label .nodeLabel {
+  fill: var(--vscode-editor-foreground, #d4d4d4) !important;
+}
+
+/* Sequence diagram specific */
+.vscode-dark .mermaid-diagram svg .actor,
+.vscode-high-contrast .mermaid-diagram svg .actor {
+  stroke: var(--vscode-focusBorder, #007fd4) !important;
+  fill: var(--vscode-editor-background, #1e1e1e) !important;
+}
+
+.vscode-dark .mermaid-diagram svg .actor-line,
+.vscode-high-contrast .mermaid-diagram svg .actor-line {
+  stroke: var(--vscode-editor-foreground, #94a3b8) !important;
+}
+
+.vscode-dark .mermaid-diagram svg .messageLine0,
+.vscode-dark .mermaid-diagram svg .messageLine1,
+.vscode-high-contrast .mermaid-diagram svg .messageLine0,
+.vscode-high-contrast .mermaid-diagram svg .messageLine1 {
+  stroke: var(--vscode-editor-foreground, #94a3b8) !important;
+}
+
+/* Note styling */
+.vscode-dark .mermaid-diagram svg .note,
+.vscode-high-contrast .mermaid-diagram svg .note {
+  fill: var(--vscode-editorWidget-background, #252526) !important;
+  stroke: var(--vscode-focusBorder, #007fd4) !important;
+}
+
+/* Light theme adjustments */
+.vscode-light .mermaid-diagram svg .flowchart-link,
+.vscode-light .mermaid-diagram svg .marker,
+.vscode-light .mermaid-diagram svg path.path {
+  stroke: var(--vscode-editor-foreground, #333333) !important;
+}
+
+.vscode-light .mermaid-diagram svg marker path {
+  fill: var(--vscode-editor-foreground, #333333) !important;
+  stroke: var(--vscode-editor-foreground, #333333) !important;
+}
